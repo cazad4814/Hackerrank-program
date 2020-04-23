@@ -1,0 +1,33 @@
+ static String caesarCipher(String s, int k) {
+         String st="abcdefghijklmnopqrstuvwxyz";
+         String st1="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+         
+            String str=st;
+            int i=k%str.length();
+             str=str.substring(i,str.length())+str.substring(0,i);
+            // System.out.println(str);
+            
+             String str1=st1;
+            int j=k%str1.length();
+             str1=str1.substring(j,str1.length())+str1.substring(0,j);
+         // System.out.println(str1);
+          //System.out.println((int)'_');
+          
+              String result="";
+          for(int i1=0;i1<s.length();i1++){
+                 if(((int)s.charAt(i1)>=32 && (int)s.charAt(i1)<=47) || ((int)s.charAt(i1)>=58 && (int)s.charAt(i1)<=64) || ((int)s.charAt(i1)>=91 && (int)s.charAt(i1)<=96) || ((int)s.charAt(i1)>=123 && (int)s.charAt(i1)<=126 || (int)s.charAt(i1)>=48 && (int)s.charAt(i1)<=57)){
+                           result+=s.charAt(i1);
+                 }
+                 else{
+                     if((int)s.charAt(i1)>=97 && (int)s.charAt(i1)<=122){
+                     result+=str.charAt(st.indexOf(s.charAt(i1)));
+                     }else{
+                          result+=str1.charAt(st1.indexOf(s.charAt(i1)));
+                     }
+                 }
+                 
+          }
+                  
+            return result;
+
+    }
