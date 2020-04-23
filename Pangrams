@@ -1,0 +1,14 @@
+ static String pangrams(String s) {
+        s=s.toLowerCase();
+       int count=0;
+       for(char c='a';c<='z';c++){
+           if(s.contains(Character.toString(c))){
+               count++;
+           }
+       }
+         if (count>=26){ 
+            return ("pangram");
+        }else{  
+            return ("not pangram");
+        }
+    }
