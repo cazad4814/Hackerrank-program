@@ -1,0 +1,60 @@
+deatils for concept=====https://www.youtube.com/watch?v=L27_JpN6Z1Q
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+public class Result {
+       public static void main(String args[]){
+    Scanner in =new Scanner(System.in);
+    int amount=in.nextInt();
+     int n=in.nextInt();
+     int[] coin=new int[n];
+       long[][] res=new long[n+1][amount+1];
+         for(int i=0;i<n;i++){
+             coin[i]=in.nextInt();
+              
+         }
+for(int i=0;i<n;i++){
+    res[i][0]=1;
+}
+for(int j=1;j<=amount;j++){
+    if(j%coin[0]==0){
+    res[0][j]=1;
+    }else{
+    res[0][j]=0;
+    }
+}
+
+
+     for(int i=1;i<n;i++)
+              {    
+           for(int j=1;j<=amount;j++) {
+            
+            if(coin[i]>j){
+                res[i][j]=res[i-1][j];
+               
+            }else{
+            
+                res[i][j]=res[i-1][j]+res[i][j-coin[i]];
+                
+            }
+
+        
+    }
+
+    }
+
+    
+           System.out.print(res[n-1][amount]);
+}
+}
